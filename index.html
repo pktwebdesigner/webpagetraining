@@ -1,17 +1,17 @@
 <!DOCTYPE>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body
 {
 background:url("https://www.onelogin.com/assets/img/og/learn/sso-work-og.jpg");
 background-size:cover;
-background-position:center;
+
 }
 #login
 {
-background:#000;
+background:black;
 color:white;
 width:350px;
 height:450px;
@@ -77,12 +77,61 @@ color:white;
 {
 color:red;
 }
+#btncancel
+{
+font-size:20px;
+color:white;
+background:transparent;
+border:none;
+outline:none;
+position:absolute;
+top:20px;
+left:90%;
+}
+#btncancel:hover
+{
+color:red;
+}
+#buttons
+{
+position:absolute;
+right:0;
+}
 
+#btnlogin,#btnsignup
+{
+outline:none;
+border:1px solid black;
+border-radius:20px;
+background:#9bf2e5;
+width:90px;
+height:30px;
+}
+#btnlogin:hover
+{
+background:red;
+}
+
+#main
+{
+height:100%;
+width:100%;
+background-color:rgba(255,255,255,0.4);
+display:none;
+margin:0px;
+padding:0px;
+}
 </style>
 </head>
 <body>
-<div id="login" >
+<div id="buttons">
+<button id="btnlogin" onclick="myfunction('login')">LOGIN</button>
+<button id="btnsignup">SIGNUP</button>
+</div>
+<div id="main">
+<div id="login">
 <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX25634105.jpg" id="avatar">
+<button id="btncancel" onclick="myfunction('cancel')">X</button>
 <form>
 <h1>Login</h1>
 <p> User Name</p>
@@ -94,5 +143,24 @@ color:red;
 <a href="#">Create new account?</a>
 </form>
 </div>
+</div>
 </body>
+<script>
+function myfunction(event)
+{
+var body=document.getElementsByTagName("BODY")[0];
+var main=document.getElementById("main");
+var id=document.getElementById("login");
+var login=document.getElementById("btnlogin");
+var cancel=document.getElementById("btncancel");
+if(event=='login')
+{
+main.style.display="block";
+}
+if(event=='cancel')
+{
+main.style.display="none";
+}
+}
+</script>
 <html>
